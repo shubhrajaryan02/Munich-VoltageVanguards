@@ -1,0 +1,88 @@
+<div class="row">
+    <!-- Card for Connection Status -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <!-- Button with camera icon -->
+                    <button
+                        class="btn btn-lg rounded-circle round round-lg fs-6 d-flex align-items-center justify-content-center"
+                        [ngClass]="connectionStatusColor" (click)="checkConnectionStatus()">
+                        <div class="circular-icon">
+                            <i class="fas fa-camera"></i> <!-- Use the camera icon class here -->
+                        </div>
+                    </button>
+
+                    <div class="ms-3">
+                        <h3 class="mb-0 font-weight-bold">{{ topcards[0].title }} </h3>
+                        <small class="text-muted fs-3">{{ connectionStatus + ' '+  connectionLabel}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add similar circular icons to the other cards -->
+    <div class="col-md-6 col-lg-3" *ngIf="topcards[1].title === 'Driving Mode'"
+        [style.opacity]="(sharedDataService.connectionStatus$ | async) ? '1' : '0.5'"
+        [style.pointer-events]="(sharedDataService.connectionStatus$ | async) ? 'auto' : 'none'">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <!-- Toggle switch for Driving Mode -->
+                    <label class="form-check form-switch">
+                        <input class="form-check-input" [(ngModel)]="parentautonomousMode" type="checkbox"
+                            (change)="toggleAutonomousMode()">
+                        <span class="form-check-label"></span>
+                    </label>
+                    <div class="ms-3">
+                        <div class="circular-icon">
+                            <i class="fas fa-car"></i> <!-- Use the car icon class here or your desired icon -->
+                        </div>
+                        <h3 class="mb-0 font-weight-bold">{{ topcards[1].title }}</h3>
+                        <small class="text-muted fs-3">{{ topcards[1].subtitle }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3" *ngIf="topcards[2].title === 'Stopwatch'"
+        [style.opacity]="(sharedDataService.connectionStatus$ | async) ? '1' : '0.5'"
+        [style.pointer-events]="(sharedDataService.connectionStatus$ | async) ? 'none' : 'auto'">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <!-- Stopwatch icon -->
+                    <div class="circular-icon">
+                        <i class="bi bi-stopwatch fs-5 me-3 text-info"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-0 font-weight-bold">{{ topcards[2].title }}</h3>
+                        <small class="text-muted fs-3">{{ topcards[2].subtitle }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3" *ngIf="topcards[3].title === 'Power State'"
+        [style.opacity]="(sharedDataService.connectionStatus$ | async) ? '1' : '0.5'"
+        [style.pointer-events]="(sharedDataService.connectionStatus$ | async) ? 'none' : 'auto'">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <!-- Battery icon -->
+                    <div class="circular-icon">
+                        <i class="bi bi-battery-full fs-5 me-3"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-0 font-weight-bold">{{ topcards[3].title }}</h3>
+                        <small class="text-muted fs-3">{{ topcards[3].subtitle }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

@@ -1,0 +1,17 @@
+/* your-component.scss */
+
+/* Define styles for the button when status is Connected */
+.connected-button {
+    background-color: #06882d !important; /* Light green background color */
+    color: #fff !important; /* White text color */
+    border: none !important; /* Remove button border */
+  }
+  
+  /* Define styles for the button when status is Disconnected or initial */
+  .disconnected-button {
+    background-color: #db4307 !important; /* Green background color */
+  
+    color: #000 !important; /* Black text color */
+    border: none !important; /* Remove button border */
+  }
+  

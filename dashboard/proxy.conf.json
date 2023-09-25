@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://bee6-62-245-145-86.ngrok.io",
+      "secure": false
+    }
+  }
+  

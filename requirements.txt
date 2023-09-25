@@ -1,0 +1,8 @@
+# Add dependencies required for the source code here
+flask==2.0.1
+picarx==1.0.0
+flask-cors
+
+
+# Add testing dependencies here
+flask-testing==0.8.0

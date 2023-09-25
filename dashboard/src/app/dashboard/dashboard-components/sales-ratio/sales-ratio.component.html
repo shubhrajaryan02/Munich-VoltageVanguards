@@ -1,0 +1,32 @@
+<!-- This is a card container -->
+<div class="card" >
+  <div class="card-body">
+    <!-- This section contains the card title -->
+    <div class="d-md-flex align-items-center">
+      <div>
+        <!-- Card Title -->
+        <h4 class="card-title">Live Camera Stream</h4>
+      </div>
+    </div>
+
+    <!-- This row contains the camera stream or a message if there's no stream -->
+    <div class="row mt-3">
+      <!-- Column -->
+      <div class="col-lg-12">
+        <!-- Conditionally display the camera stream if it's live, or a message if not -->
+        <div *ngIf="isStreamLive; else noStreamMessage">
+          <!-- Embed the camera stream here -->
+          <img [src]="streamUrl" alt="Raspberry Pi Camera Stream">
+        </div>
+        <!-- Template for displaying the "No live stream now" message -->
+        <ng-template #noStreamMessage>
+          <p>No live stream now, Click on the camera icon to connnect to device and watch the live feed</p>
+        </ng-template>
+      </div>
+      <!-- End Column -->
+    </div>
+    <!-- End Row -->
+
+  </div>
+</div>
+<!-- End Card Container -->

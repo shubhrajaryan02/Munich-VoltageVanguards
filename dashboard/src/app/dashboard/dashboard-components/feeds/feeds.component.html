@@ -1,0 +1,55 @@
+<div class="card" *ngIf="(sharedDataService.connectionStatus$ | async)">
+  <div class="card-body" >
+    <h4 class="card-title">Use Arrow keys UP, DOWN, LEFT, RIGHT to Control PiCar</h4>
+    <h5 class="card-subtitle text-muted">Press 's' on keyboard to stop the PiCar</h5>
+
+<!-- Buttons for manual control (Up, Left, Right, Down) -->
+<div class="feed-widget mt-4" *ngIf="!(sharedDataService.automode$ | async)">
+  <div class="gaming-pad">
+    <!-- Up Button -->
+    <button class="btn btn-secondary btn-square arrow-button" id="up-button" (click)="move('Up')">
+      <i class="bi bi-arrow-up"></i> UP
+    </button>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <!-- Left Button -->
+      <button class="btn btn-secondary btn-square arrow-button" id="left-button" (click)="move('Left')">
+        <i class="bi bi-arrow-left"></i> LEFT
+      </button>
+      <!-- Right Button -->
+      <button class="btn btn-secondary btn-square arrow-button" id="right-button" (click)="move('Right')">
+        <i class="bi bi-arrow-right"></i> RIGHT
+      </button>
+    </div>
+    <!-- Down Button -->
+    <button class="btn btn-secondary btn-square arrow-button" id="down-button" (click)="move('Down')">
+      <i class="bi bi-arrow-down"></i> DOWN
+    </button>
+    <button class="btn btn-danger btn-square" id="stop-button"  (click)="move('Stop')">
+      <i class="bi bi-stop"></i> STOP
+    </button>
+  </div>
+</div>
+
+
+     <!-- Buttons for autonomous control (Start, Stop, Reset) -->
+     <div class="feed-widget mt-4" *ngIf="(sharedDataService.automode$ | async)">
+      <div class="gaming-pad">
+        <div class="autonomous-buttons">
+          <!-- Start Button -->
+          <button class="btn btn-success btn-square" id="start-button" (click)="startTimer()">
+            <i class="bi bi-play"></i> Start
+          </button>
+          <!-- Stop Button -->
+          <button class="btn btn-danger btn-square" id="stop-button" (click)="stopTimer()">
+            <i class="bi bi-stop"></i> Stop
+          </button>
+          <!-- Reset Button -->
+          <button class="btn btn-warning btn-square" id="reset-button" (click)="resetTimer()">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
