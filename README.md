@@ -1,3 +1,4 @@
+# Linkt to video run https://drive.google.com/file/d/1dSqnbqDWTWNuOTQh5f_Pd5zb3IUqVHd5/view?usp=drive_link
 # Introduction 
 This project focuses on providing a user-friendly interface to control the PiCar-X robot remotely. It includes a manual control feature for real-time movement, a live camera feed for monitoring the surroundings, and an automated mode for autonomous driving. The UI is built using Angular, ensuring a modern and intuitive experience.
 
